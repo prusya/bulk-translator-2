@@ -4,6 +4,7 @@ before_install:
 - npm install cross-env
 
 script:
+- npm install
 - npm run pack
 - npm run build:win32
 - cd build/bulk-translator-2-win32-x64
