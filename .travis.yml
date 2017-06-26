@@ -1,5 +1,8 @@
 language: node
 
+before_install:
+- npm install cross-env
+
 script:
 - npm run pack
 - npm run build:win32
