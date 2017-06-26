@@ -4,32 +4,33 @@ node_js:
 - "6"
 
 before_install:
-- npm install cross-env
+- sudo dpkg --add-architecture i386
+- wget -nc https://dl.winehq.org/wine-builds/Release.key
+- sudo apt-key add Release.key
+- sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
+- sudo apt update
+- sudo apt install wine-stable winehq-stable
+- export WINEARCH=win32
+- winecfg
+- yarn add cross-env
 
 script:
-- npm install
-- npm run pack
-- npm run build:win32
-- cd build/bulk-translator-2-win32-x64
-- zip bulk-translator-2-win32-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER} *
-- cd ../..
-- npm run build:darwin
-- cd build/bulk-translator-2-darwin-x64
-- zip bulk-translator-2-darwin-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER} *
-- cd ../..
-- npm run build:linux
-- cd build/bulk-translator-2-linux-x64
-- zip bulk-translator-2-linux-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER} *
-- cd ../..
+- yarn run pack
+- yarn run build:win32
+- zip -r bulk-translator-2-win32-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip build/bulk-translator-2-win32-x64
+- yarn run build:darwin
+- zip -r bulk-translator-2-darwin-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip build/bulk-translator-2-darwin-x64
+- yarn run build:linux
+- zip -r bulk-translator-2-linux-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip build/bulk-translator-2-linux-x64
 
 deploy:
   provider: releases
   api_key:
     secure: BQoHxonhmqQq3y8Bscgz
   file:
-    - build/bulk-translator-2-win32-x64/bulk-translator-2-win32-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip
-    - build/bulk-translator-2-darwin-x64/bulk-translator-2-darwin-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip
-    - build/bulk-translator-2-linux-x64/bulk-translator-2-linux-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip
+    - bulk-translator-2-win32-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip
+    - bulk-translator-2-darwin-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip
+    - bulk-translator-2-linux-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip
   skip_cleanup: true
   overwrite: true
   on:
