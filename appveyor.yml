@@ -36,3 +36,6 @@ deploy:
 - provider: GitHub
   auth_token:
     secure: XzF+tv+eNt5kVFVCR+vRzieXMuQuiIm59sNqopHv9w3VXu9Watx7fn/s+r93nVF0
+  artifact: /.*\.zip/
+  on:
+    appveyor_repo_tag: true
