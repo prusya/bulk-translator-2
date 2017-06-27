@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "bootstrap-vue": "^0.16.1",
     "electron": "^1.6.11",
     "fs-jetpack": "^1.1.0",
     "google-auth-library": "^0.10.0",
