@@ -1,28 +1,25 @@
 <template>
   <div id="wrapper">
-    <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
     <main>
-      <div class="left-side">
-        <span class="title">
-          Welcome to your new project!
-        </span>
-        <system-information></system-information>
-      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col col-sm-12">
+            <b-card no-block>
+    <b-tabs small card ref="tabs" v-model="tabIndex">
+      <b-tab title="General">
+        I'm the first fading tab
+      </b-tab>
+      <b-tab title="Edit profile">
+        I'm the second tab
+        <b-card>I'm the card in tab</b-card>
+      </b-tab>
+      <b-tab title="Premium Plan" disabled>
+        Sibzamini!
+      </b-tab>
+    </b-tabs>
 
-      <div class="right-side">
-        <div class="doc">
-          <div class="title">Getting Started</div>
-          <p>
-            electron-vue comes packed with detailed documentation that covers everything from
-            internal configurations, using the project structure, building your application,
-            and so much more.
-          </p>
-          <button @click="open('https://simulatedgreg.gitbooks.io/electron-vue/content/')">Read the Docs</button><br><br>
-        </div>
-        <div class="doc">
-          <div class="title alt">Other Documentation</div>
-          <button class="alt" @click="open('https://electron.atom.io/docs/')">Electron</button>
-          <button class="alt" @click="open('https://vuejs.org/v2/guide/')">Vue.js</button>
+  </b-card>
+          </div>
         </div>
       </div>
     </main>
@@ -34,7 +31,7 @@
 
   export default {
     name: 'landing-page',
-    components: { SystemInformation },
+    components: {SystemInformation},
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
@@ -50,19 +47,21 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: #ff0000 solid 1px !important;
   }
 
-  body { font-family: 'Source Sans Pro', sans-serif; }
+  body {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
 
   #wrapper {
-    background:
-      radial-gradient(
-        ellipse at top left,
-        rgba(255, 255, 255, 1) 40%,
-        rgba(229, 229, 229, .9) 100%
-      );
+    background: radial-gradient(
+      ellipse at top left,
+      rgba(255, 255, 255, 1) 40%,
+      rgba(229, 229, 229, .9) 100%
+    );
     height: 100vh;
-    padding: 60px 80px;
+    padding: 0px 0px;
     width: 100vw;
   }
 
@@ -74,10 +73,12 @@
 
   main {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
   }
 
-  main > div { flex-basis: 50%; }
+  main > div {
+    flex-basis: 100%;
+  }
 
   .left-side {
     display: flex;
