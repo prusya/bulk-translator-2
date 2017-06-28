@@ -1,0 +1,21 @@
+language: node_js
+ 
+node_js:
+  - "6"
+
+script:
+  - yarn run build:darwin
+  - zip -r bulk-translator-2-darwin-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip build/bulk-translator-2-darwin-x64
+  - yarn run build:linux
+  - zip -r bulk-translator-2-linux-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip build/bulk-translator-2-linux-x64
+
+deploy:
+  api_key:
+    secure: "kM0zYVwwcZu2/8ocJ1g0AOdpwNxP6tTQHht/bt5sIiVl2f+uXAt+S78oWIWMH8hiRIaANMov8MyXkzze7eR3bSQ1mZF8yepOS7aomCY54veKPJtdHRgIiJ7pMDit1VBzBqad9hzmg2QCRdo2pZ5qVpNj0uj7U1Dc1THhc9nvHIIh8eUYI8rkp+SILcxwknaZK2bp8pNnX1b25QcVGti6uiOcvi6vvt0zAsqPIcgm4DlIWhonSzdbuDIPyq/zgHzoxszEitY+VUsrXjHfT1uK+eR4kdQJRau+cH4CD41TkdCGsKEy6Myq6wQ4Dmty2gpgFQyuOkeYsvNEmluLTeUOw13drKtvpx10UEGtZUSiOivf9GAxuu2KCMBIIpBHgCi5BqmH5ptPa0Rv4lI4mlzGL6gt71lLmcfRFvIpjTP/Ib1oWxKlOl4LlY32cQmAjoBQNp2337xpw2LNT0QQ1byVZxvZz+XVoVZ6vI/JQA1sZtH6nMFpdcQxppRW6Ldh2xaLWYHJFIzcHxtTgyarhwci3GYz2gEvxn0h92gUEXm8Hh97cczZ1Zyk6Tis5UdiTlMD2i+lZspE8+gHHyU9kXQ2Tq56Yo9EsZkSrLykdzR2GemE1e5i/JMiis+PnHJhCS6NiP4lxilqXRS6Q+bMfN3Tj2tdnWcDu7Zl3WDYdFEEhlE="
+  file:
+    - bulk-translator-2-darwin-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip
+    - bulk-translator-2-linux-x64-${TRAVIS_TAG}-build-${TRAVIS_BUILD_NUMBER}.zip
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true
