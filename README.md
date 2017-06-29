@@ -1,4 +1,4 @@
-# bulk-translator-2
+# Bulk Translator 2 [![Windows Build Status](https://travis-ci.org/prusya/bulk-translator-2.svg?branch=master)](https://travis-ci.org/prusya/bulk-translator-2) [![Lixun/Darwin Build Status](https://ci.appveyor.com/api/projects/status/github/prusya/bulk-translator-2?svg=true)](https://ci.appveyor.com/project/prusya/bulk-translator-2)
 
 > App for bulk translating and saving texts
 

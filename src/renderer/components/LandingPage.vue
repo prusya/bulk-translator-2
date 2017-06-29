@@ -4,21 +4,29 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col col-sm-12">
-            <b-card no-block>
-    <b-tabs small card ref="tabs" v-model="tabIndex">
-      <b-tab title="General">
-        I'm the first fading tab
-      </b-tab>
-      <b-tab title="Edit profile">
-        I'm the second tab
-        <b-card>I'm the card in tab</b-card>
-      </b-tab>
-      <b-tab title="Premium Plan" disabled>
-        Sibzamini!
-      </b-tab>
-    </b-tabs>
-
-  </b-card>
+            <b-tabs>
+              <b-tab title="Save to Google Play" active>
+                Save to Google Play
+              </b-tab>
+              <b-tab title="Save to Files">
+                Save to Files
+              </b-tab>
+              <b-tab title="Languages">
+                Languages
+              </b-tab>
+              <b-tab title="Keys">
+                Keys
+              </b-tab>
+              <b-tab title="Instructions">
+                Instructions
+              </b-tab>
+              <b-tab title="Tips">
+                Tips
+              </b-tab>
+              <b-tab title="Update History">
+                Update History
+              </b-tab>
+            </b-tabs>
           </div>
         </div>
       </div>
@@ -47,7 +55,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    border: #ff0000 solid 1px !important;
+    /*border: #ff0000 solid 1px !important;*/
   }
 
   body {
@@ -91,7 +99,7 @@
     margin-bottom: 10px;
   }
 
-  .title {
+  .title{
     color: #2c3e50;
     font-size: 20px;
     font-weight: bold;
@@ -125,5 +133,10 @@
   .doc button.alt {
     color: #42b983;
     background-color: transparent;
+  }
+
+  .container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
   }
 </style>
