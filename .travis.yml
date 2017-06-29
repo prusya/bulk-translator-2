@@ -5,17 +5,18 @@ node_js:
 
 script:
   - yarn run build:darwin
-  - zip -r bulk-translator-2-darwin-x64-${TRAVIS_TAG:-dev-$TRAVIS_BUILD_NUMBER}.zip build/bulk-translator-2-darwin-x64
+  - zip -r "Bulk Translator 2-darwin-x64-${TRAVIS_TAG:-dev-$TRAVIS_BUILD_NUMBER}.zip" build/bulk-translator-2-darwin-x64
   - yarn run build:linux
-  - zip -r bulk-translator-2-linux-x64-${TRAVIS_TAG:-dev-$TRAVIS_BUILD_NUMBER}.zip build/bulk-translator-2-linux-x64
+  - zip -r "Bulk Translator 2-linux-x64-${TRAVIS_TAG:-dev-$TRAVIS_BUILD_NUMBER}.zip" build/bulk-translator-2-linux-x64
+  - ls -la build/
 
 deploy:
   provider: releases
   api_key:
     secure: "jCz/FWl9Zy4N8IxCTOTojq1eJKk9umJyHY7DnDbpxHQD7ICCw7lrDNy+druiW1USjCnFnBmT9GL4dezyOjgEo6Gmf4Vfd2LMdy3YoVvlK+/wgMI+5ZHvCHb3TlJalxAGCA/p+vYT0A+4rZ0vcFVIjYfQNCCROfqz79rTceBTPC9tDpCMLqwJZBVEjd3Ef9iuqhf+RjHHBCx+LEXJ/YD3akzdf5wpWtxB8Ex29lrT2xyP1v5uN3O488s2rvqIz1j3S0zsT8apAw0VDEpx2WsDPF72gK73qW6GF/9cortQ4/iBT9oLjTCqrcD+upayYXaFPIEaADvsUfBxMIKK0gaCR6JaIaCQL+6YdhbnS077wgBiuZg0WwvlIoffyKQUOzs9iV1FtX+0PbzsYO2EdOCdJNki81R3tr5mAtxDnbzhLuXt9qn8DM/fASCJxA3YOUl535P4ktkGwUs6fo1ZEPUk9Mlb/SGFxTAIh1s6RBTQVvFg3q75/4KJAArhPekuZASuwzN3MD9wQc5llrI0Ac06vM28nTf+4lC9Ubwgew+V2Us+Mdttm7xJtwWbgdRt+M8NT16MzEAsws8PHVTPjzvQMUiu5D9SzhkvCXQdXU78jfuvwPNa0YrEtnnBKc3KXt7dN3QTT0hOviugmK/c20fKuOQ7yZgGZss8ACknlHCC2ws="
   file:
-    - bulk-translator-2-darwin-x64-${TRAVIS_TAG:-dev-$TRAVIS_BUILD_NUMBER}.zip
-    - bulk-translator-2-linux-x64-${TRAVIS_TAG:-dev-$TRAVIS_BUILD_NUMBER}.zip
+    - "Bulk Translator 2-darwin-x64-${TRAVIS_TAG:-dev-$TRAVIS_BUILD_NUMBER}.zip"
+    - "Bulk Translator 2-linux-x64-${TRAVIS_TAG:-dev-$TRAVIS_BUILD_NUMBER}.zip"
   skip_cleanup: true
   overwrite: true
   on:
