@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron'
+require('electron-debug')({showDevTools: false, enabled: true})
 
 /**
  * Set `__static` path to static files in production
@@ -18,9 +19,10 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
-    useContentSize: true,
-    width: 1000
+    height: 1000,
+    useContentSize: false,
+    width: 850,
+    title: "Bulk Translator 2"
   })
 
   mainWindow.loadURL(winURL)

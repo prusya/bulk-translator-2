@@ -11,5 +11,12 @@
 </script>
 
 <style>
-  /* CSS */
+  .row {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  .space {
+    margin-top: 20px;
+  }
 </style>

@@ -12,7 +12,7 @@
                 Save to Files
               </b-tab>
               <b-tab title="Languages">
-                Languages
+                <languages></languages>
               </b-tab>
               <b-tab title="Keys">
                 Keys
@@ -35,11 +35,11 @@
 </template>
 
 <script>
-  import SystemInformation from './LandingPage/SystemInformation'
+  import Languages from './LandingPage/Languages'
 
   export default {
     name: 'landing-page',
-    components: {SystemInformation},
+    components: {Languages},
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
