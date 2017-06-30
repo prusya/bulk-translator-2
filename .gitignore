@@ -13,6 +13,7 @@ thumbs.db
 
 # Custom
 .idea/
+keys/
 
 # Logs
 logs

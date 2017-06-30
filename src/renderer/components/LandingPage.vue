@@ -21,7 +21,7 @@
                 <instructions></instructions>
               </b-tab>
               <b-tab title="Tips">
-                Tips
+                <tips></tips>
               </b-tab>
               <b-tab title="Update History">
                 Update History
@@ -39,10 +39,11 @@
   import SaveToFiles from './LandingPage/SaveToFiles'
   import Instructions from './LandingPage/Instructions'
   import Keys from './LandingPage/Keys'
+  import Tips from './LandingPage/Tips'
 
   export default {
     name: 'landing-page',
-    components: {Languages, SaveToFiles, Instructions, Keys},
+    components: {Languages, SaveToFiles, Instructions, Keys, Tips},
     data () {
       return {
         tab_index: null,
