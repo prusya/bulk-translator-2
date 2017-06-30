@@ -18,7 +18,7 @@
                 Keys
               </b-tab>
               <b-tab title="Instructions">
-                Instructions
+                <instructions></instructions>
               </b-tab>
               <b-tab title="Tips">
                 Tips
@@ -37,10 +37,11 @@
 <script>
   import Languages from './LandingPage/Languages'
   import SaveToFiles from './LandingPage/SaveToFiles'
+  import Instructions from './LandingPage/Instructions'
 
   export default {
     name: 'landing-page',
-    components: {Languages, SaveToFiles},
+    components: {Languages, SaveToFiles, Instructions},
     data () {
       return {
         tab_index: null
@@ -76,7 +77,6 @@
     );
     min-height: 100%;
     padding: 0px 0px;
-    min-width: 100%;
   }
 
   #logo {
