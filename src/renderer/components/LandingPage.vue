@@ -4,12 +4,12 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col col-sm-12">
-            <b-tabs>
+            <b-tabs v-model="tab_index">
               <b-tab title="Save to Google Play" active>
                 Save to Google Play
               </b-tab>
               <b-tab title="Save to Files">
-                Save to Files
+                <save-to-files :tab_index="tab_index"></save-to-files>
               </b-tab>
               <b-tab title="Languages">
                 <languages></languages>
@@ -36,10 +36,16 @@
 
 <script>
   import Languages from './LandingPage/Languages'
+  import SaveToFiles from './LandingPage/SaveToFiles'
 
   export default {
     name: 'landing-page',
-    components: {Languages},
+    components: {Languages, SaveToFiles},
+    data () {
+      return {
+        tab_index: null
+      }
+    },
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
@@ -66,11 +72,11 @@
     background: radial-gradient(
       ellipse at top left,
       rgba(255, 255, 255, 1) 40%,
-      rgba(229, 229, 229, .9) 100%
+      rgba(229, 229, 229, 0.9) 100%
     );
-    height: 100vh;
+    min-height: 100%;
     padding: 0px 0px;
-    width: 100vw;
+    min-width: 100%;
   }
 
   #logo {

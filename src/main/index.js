@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import {app, BrowserWindow} from 'electron'
 require('electron-debug')({showDevTools: false, enabled: true})
 
 /**
@@ -14,7 +14,7 @@ const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
 
-function createWindow () {
+function createWindow() {
   /**
    * Initial window options
    */
@@ -30,6 +30,8 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  mainWindow.setTitle("Bulk Translator 2")
 }
 
 app.on('ready', createWindow)

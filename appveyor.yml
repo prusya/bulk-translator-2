@@ -1,8 +1,6 @@
 platform:
   - x64
 
-skip_non_tags: true
-
 init:
   - git config --global core.autocrlf input
 
@@ -21,8 +19,8 @@ build_script:
 test: off
 
 artifacts:
-- path: build\bulk-translator-2-win32-x64
-  name: bulk-translator-2-win32-x64-$(APPVEYOR_REPO_TAG_NAME)
+- path: build\Bulk Translator 2-win32-x64
+  name: Bulk Translator 2-win32-x64-$(APPVEYOR_REPO_TAG_NAME)
 
 
 deploy:
