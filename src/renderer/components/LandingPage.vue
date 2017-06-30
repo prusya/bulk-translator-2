@@ -15,7 +15,7 @@
                 <languages></languages>
               </b-tab>
               <b-tab title="Keys">
-                Keys
+                <keys></keys>
               </b-tab>
               <b-tab title="Instructions">
                 <instructions></instructions>
@@ -38,13 +38,14 @@
   import Languages from './LandingPage/Languages'
   import SaveToFiles from './LandingPage/SaveToFiles'
   import Instructions from './LandingPage/Instructions'
+  import Keys from './LandingPage/Keys'
 
   export default {
     name: 'landing-page',
-    components: {Languages, SaveToFiles, Instructions},
+    components: {Languages, SaveToFiles, Instructions, Keys},
     data () {
       return {
-        tab_index: null
+        tab_index: null,
       }
     },
     methods: {
