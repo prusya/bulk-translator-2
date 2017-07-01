@@ -28,7 +28,7 @@
 
 <script>
   const jetpack = require('fs-jetpack')
-  import Lang from '../../shared.js'
+  import {Lang} from '../../shared.js'
 
   export default {
     data () {
@@ -51,7 +51,7 @@
           var full_name = this.langs[short_name]
           var gpc_name = this.gpc_langs[short_name]
           var selected = saved_langs[short_name] ? true : false
-          this.$store.commit('add_lang', new Lang.Lang(short_name, full_name,
+          this.$store.commit('add_lang', new Lang(short_name, full_name,
             gpc_name, selected))
         }
       },

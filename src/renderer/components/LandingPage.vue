@@ -6,7 +6,8 @@
           <div class="col col-sm-12">
             <b-tabs v-model="tab_index">
               <b-tab title="Save to Google Play" active>
-                Save to Google Play
+                <save-to-google-play>
+                </save-to-google-play>
               </b-tab>
               <b-tab title="Save to Files">
                 <save-to-files :tab_index="tab_index"></save-to-files>
@@ -23,9 +24,6 @@
               <b-tab title="Tips">
                 <tips></tips>
               </b-tab>
-              <b-tab title="Update History">
-                Update History
-              </b-tab>
             </b-tabs>
           </div>
         </div>
@@ -40,10 +38,18 @@
   import Instructions from './LandingPage/Instructions'
   import Keys from './LandingPage/Keys'
   import Tips from './LandingPage/Tips'
+  import SaveToGooglePlay from './LandingPage/SaveToGooglePlay'
 
   export default {
     name: 'landing-page',
-    components: {Languages, SaveToFiles, Instructions, Keys, Tips},
+    components: {
+      Languages,
+      SaveToFiles,
+      Instructions,
+      Keys,
+      Tips,
+      SaveToGooglePlay
+    },
     data () {
       return {
         tab_index: null,
@@ -107,7 +113,7 @@
     margin-bottom: 10px;
   }
 
-  .title{
+  .title {
     color: #2c3e50;
     font-size: 20px;
     font-weight: bold;

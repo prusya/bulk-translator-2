@@ -48,6 +48,8 @@
         jetpack.find(__static + '/store/keys/', {matching: '*.json'})
           .forEach(file => {
             var key_obj = jetpack.read(file, 'json')
+            key_obj.value = key_obj.client_email
+            key_obj.text = key_obj.client_email
             this.$store.commit('add_key', key_obj)
           })
       },

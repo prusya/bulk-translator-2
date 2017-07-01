@@ -77,7 +77,7 @@
 <script>
   const jetpack = require('fs-jetpack')
   const fs = require('fs')
-  import Lang from '../../shared.js'
+  import {Lang} from '../../shared.js'
   const {shell} = require('electron')
   const dialog = require('electron').remote.dialog
   const app = require('electron').remote.app
@@ -133,6 +133,7 @@
         this.clear_translation()
         this.current_langs.forEach(e => {
           if (!e.selected) return
+
           translate(this.text_to_translate, {from: 'en', to: e.short_name})
             .then(res => {
               var translation = new Object()
