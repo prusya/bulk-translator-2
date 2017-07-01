@@ -1,7 +1,7 @@
 {
   "name": "bulk-translator-2",
   "productName": "Bulk Translator 2",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "pRusya <agat.nk@gmail.com>",
   "description": "App for bulk translating and saving texts",
   "license": "MIT",
