@@ -120,9 +120,12 @@
         if (!this.text_to_translate || !this.path_to_save_writable) return
         this.current_langs.forEach(e => {
           if (['zh-cn', 'zh-tw'].includes(e.short_name) || !e.selected) return
+          // Remove apostrophe and quotes
+          var res_clean = this.text_to_translate
+              .replace(/[\u0027\u02bb\u02bc\u02bd\u02c8]/gu, "")
           var file_name = path.join(this.path_to_save,
             'values-' + e.short_name, 'strings.xml')
-          var content = this.template_start + this.text_to_translate +
+          var content = this.template_start + res_clean +
             this.template_end
           jetpack.writeAsync(file_name, content)
         })
@@ -151,9 +154,12 @@
         if (!this.translated_texts || !this.path_to_save_writable) return
         this.translated_texts.forEach(e => {
           if (['zh-cn', 'zh-tw'].includes(e.short_name)) return
+          // Remove apostrophe and quotes
+          var res_clean = e.text
+              .replace(/[\u0027\u02bb\u02bc\u02bd\u02c8]/gu, "")
           var file_name = path.join(this.path_to_save,
             'values-' + e.short_name, 'strings.xml')
-          var content = this.template_start + e.text + this.template_end
+          var content = this.template_start + res_clean + this.template_end
           jetpack.writeAsync(file_name, content)
         })
       },
